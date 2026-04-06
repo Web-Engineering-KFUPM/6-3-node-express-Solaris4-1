@@ -1,4 +1,6 @@
 // TODO 1: Import and Create express app instance
+import { getRandomQuote } from "./quotes.js";
+
 import express from "express";
 
 const app = express();
@@ -23,5 +25,9 @@ app.get("/", (req, res) => {
 });
 // TODO 6.2: Create "/api/quote" route
 
+app.get("/api/quote", (req, res) => {
+  const quote = getRandomQuote();
+  res.json({ quote });
+});
 
 // TODO 7: Start server using app.listen
